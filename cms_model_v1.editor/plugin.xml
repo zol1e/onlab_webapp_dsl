@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cms_v1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="entities.presentation.EntitiesModelWizardID"
+            name="%_UI_EntitiesModelWizard_label"
+            class="entities.presentation.EntitiesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EntitiesModelFile.gif">
+         <description>%_UI_EntitiesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated cms_v1 -->
+      <editor
+            id="entities.presentation.EntitiesEditorID"
+            name="%_UI_EntitiesEditor_label"
+            icon="icons/full/obj16/EntitiesModelFile.gif"
+            extensions="entities"
+            class="entities.presentation.EntitiesEditor"
+            contributorClass="entities.presentation.EntitiesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cms_v1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="views.presentation.ViewsModelWizardID"
+            name="%_UI_ViewsModelWizard_label"
+            class="views.presentation.ViewsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ViewsModelFile.gif">
+         <description>%_UI_ViewsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated cms_v1 -->
+      <editor
+            id="views.presentation.ViewsEditorID"
+            name="%_UI_ViewsEditor_label"
+            icon="icons/full/obj16/ViewsModelFile.gif"
+            extensions="views"
+            class="views.presentation.ViewsEditor"
+            contributorClass="views.presentation.ViewsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="cms_model_v1.editor.commands.category"
+            name="CMS Generator">
+      </category>
+      <command
+            categoryId="cms_model_v1.editor.commands.category"
+            defaultHandler="cms_model_v1.editor.handlers.GenerateCodeHandler"
+            id="cms_model_v1.editor.commands.genereate"
+            name="Generate Code">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="cms_model_v1.editor.handlers.SampleHandler"
+            commandId="cms_model_v1.editor.commands.sampleCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="cms_model_v1.editor.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="true"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="cms_model_v1.editor.menus.sampleMenu"
+               label="Sample Menu"
+               mnemonic="M">
+            <command
+                  commandId="cms_model_v1.editor.commands.sampleCommand"
+                  id="cms_model_v1.editor.menus.sampleCommand"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="cms_model_v1.editor.toolbars.sampleToolbar">
+            <command
+                  commandId="cms_model_v1.editor.commands.sampleCommand"
+                  icon="icons/sample.png"
+                  id="cms_model_v1.editor.toolbars.sampleCommand"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            allPopups="true"
+            locationURI="popup:views.presentation.ViewsEditorID">
+         <command
+               commandId="cms_model_v1.editor.commands.genereate"
+               label="Generate View Codes"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="true"
+            locationURI="popup:entities.presentation.EntitiesEditorID">
+         <command
+               commandId="cms_model_v1.editor.commands.genereate"
+               label="Generate Skeleton Codes"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/cms_model_v1/src" modelPluginID="cms_model_v1"
+    forceOverwrite="true" modelName="Cms_v1" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>entities.ecore</foreignModel>
+  <foreignModel>views.ecore</foreignModel>
+  <genPackages prefix="Entities" disposableProviderFactory="true" ecorePackage="entities.ecore#/">
+    <genClasses ecoreClass="entities.ecore#//Skeleton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entities.ecore#//Skeleton/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entities.ecore#//Skeleton/bones"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entities.ecore#//Skeleton/connections"/>
+    </genClasses>
+    <genClasses ecoreClass="entities.ecore#//Bone">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entities.ecore#//Bone/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entities.ecore#//Bone/datatype"/>
+    </genClasses>
+    <genClasses ecoreClass="entities.ecore#//EntityBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entities.ecore#//EntityBase/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entities.ecore#//EntityBase/skeletons"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entities.ecore#//EntityBase/datatypes"/>
+    </genClasses>
+    <genClasses ecoreClass="entities.ecore#//Connection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entities.ecore#//Connection/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entities.ecore#//Connection/refered"/>
+    </genClasses>
+    <genClasses ecoreClass="entities.ecore#//DataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entities.ecore#//DataType/name"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Views" disposableProviderFactory="true" ecorePackage="views.ecore#/">
+    <genClasses ecoreClass="views.ecore#//ViewBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute views.ecore#//ViewBase/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference views.ecore#//ViewBase/pages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference views.ecore#//ViewBase/blocks"/>
+    </genClasses>
+    <genClasses ecoreClass="views.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute views.ecore#//Page/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference views.ecore#//Page/blockHolders"/>
+    </genClasses>
+    <genClasses ecoreClass="views.ecore#//BlockHolder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute views.ecore#//BlockHolder/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference views.ecore#//BlockHolder/defaultBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="views.ecore#//Block">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute views.ecore#//Block/name"/>
+    </genClasses>
+    <genClasses ecoreClass="views.ecore#//List"/>
+    <genClasses ecoreClass="views.ecore#//View"/>
+    <genClasses ecoreClass="views.ecore#//Navigation"/>
+  </genPackages>
+</genmodel:GenModel>
